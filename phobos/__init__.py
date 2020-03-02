@@ -57,7 +57,7 @@ def import_submodules(package, recursive=True, verbose=False):
 
     results = {}
     # iterate over all modules in package path
-    for loader, name, is_pkg in pkgutil.walk_packages(package.__path__):
+    for loader, name, is_pkg in pkgutil.iter_modules(package.__path__):
         full_name = package.__name__ + '.' + name
 
         # reload already imported modules
